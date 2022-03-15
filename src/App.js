@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Entry from './components/Entry';
+import EntryForm from './components/EntryForm';
 
 export default function App() {
   const [entries, setEntries] = useState([]);
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <>
       <h1>Lean Coffee Board</h1>
+      <EntryForm />
       <Grid role="list">
         {entries.map(({ text, author }, index) => (
           <li key={index}>
