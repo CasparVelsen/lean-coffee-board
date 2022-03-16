@@ -30,12 +30,10 @@ export default function EntryForm({ onSubmit }) {
 
 const Form = styled.form`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
   border-radius: 5px;
+  padding: 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-
   input {
     width: 100%;
     margin-right: 20px;
@@ -44,9 +42,10 @@ const Form = styled.form`
 
 const PlusButton = styled.button`
   border-radius: 50%;
-  border: 0;
-  padding: 5px 10px;
-
+  line-height: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
   div {
     margin-top: -1px;
   }
