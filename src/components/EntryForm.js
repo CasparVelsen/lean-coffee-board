@@ -34,6 +34,9 @@ const Form = styled.form`
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  position: fixed;
+  bottom: 20px;
+  width: 100vw;
   input {
     width: 100%;
     margin-right: 20px;
