@@ -5,7 +5,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 export default function Entry({ text, author, color, createdAt, onDelete }) {
   return (
     <Card color={color}>
-      <Time>{dayjs(createdAt).format('DD.MM.YYYY HH:MM')}</Time>
+      <Time>{dayjs(createdAt).format('DD.MM.YYYY HH:mm')}</Time>
       <Title>{text}</Title>
       <Author>{author}</Author>
       <Delete onClick={onDelete} />

@@ -95,7 +95,10 @@ const AppWrapper = styled.div`
 `;
 
 const StyledHeader = styled.h1`
-  background-color: #00e7c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #185e75;
   color: white;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(39, 50, 47, 0.25);
