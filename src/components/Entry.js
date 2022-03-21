@@ -16,6 +16,7 @@ export default function Entry({ text, author, color, createdAt, onDelete }) {
 const Card = styled.section`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 30px;
   padding: 10px;
   width: 350px;

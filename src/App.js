@@ -100,9 +100,6 @@ const StyledHeader = styled.h1`
   justify-content: center;
   background-color: #185e75;
   color: white;
-  text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(39, 50, 47, 0.25);
-  font-family: 'Lobster', sans-serif;
   padding: 5px 0px;
   margin: 0;
 `;
