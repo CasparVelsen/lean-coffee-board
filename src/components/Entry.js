@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import dayjs from 'dayjs';
+import { AiOutlineDelete } from 'react-icons/ai';
 
-export default function Entry({ text, author, color, createdAt }) {
+export default function Entry({ text, author, color, createdAt, onDelete }) {
   return (
     <Card color={color}>
       <Time>{dayjs(createdAt).format('DD.MM.YYYY HH:MM')}</Time>
       <Title>{text}</Title>
       <Author>{author}</Author>
+      <Delete onClick={onDelete} />
     </Card>
   );
 }
@@ -38,4 +40,14 @@ const Time = styled.small`
   position: absolute;
   right: 10px;
   top: 10px;
+`;
+
+const Delete = styled(AiOutlineDelete)`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  :hover {
+    transform: scale(1.2);
+  }
 `;

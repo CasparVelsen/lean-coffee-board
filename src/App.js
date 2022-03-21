@@ -23,8 +23,8 @@ export default function App() {
   if (entriesError) return <h1>Sorry, could not fetch.</h1>;
 
   return (
-    <>
-      <h1>Lean Coffee Board</h1>
+    <AppWrapper>
+      <StyledHeader>Lean Coffee Board</StyledHeader>
       {!active && <NameForm onSubmit={handleNewUser} />}
       {active && (
         <EntryList role="list">
@@ -36,6 +36,7 @@ export default function App() {
                     author={author}
                     color={color}
                     createdAt={createdAt}
+                    onDelete={() => handleDelete(_id)}
                   />
                 </li>
               ))
@@ -43,7 +44,7 @@ export default function App() {
         </EntryList>
       )}
       {active && <EntryForm onSubmit={handleNewEntry} />}
-    </>
+    </AppWrapper>
   );
 
   function handleNewUser(name, color) {
@@ -70,10 +71,43 @@ export default function App() {
 
     mutateEntries();
   }
+
+  async function handleDelete(_id) {
+    const filteredEntries = entries.filter(entry => entry._id !== _id);
+    mutateEntries(filteredEntries, false);
+
+    await fetch('/api/entries', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ _id }),
+    });
+
+    mutateEntries();
+  }
 }
 
+const AppWrapper = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 60px auto 80px;
+`;
+
+const StyledHeader = styled.h1`
+  background-color: #00e7c2;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(39, 50, 47, 0.25);
+  font-family: 'Lobster', sans-serif;
+  padding: 5px 0px;
+  margin: 0;
+`;
+
 const EntryList = styled.ul`
+  overflow-y: auto;
   display: flex;
+  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
   list-style: none;

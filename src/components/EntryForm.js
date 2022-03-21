@@ -13,10 +13,10 @@ export default function EntryForm({ onSubmit }) {
         placeholder="Just some text ..."
         type="text"
       />
-      <PlusButton id="entry-form-name">
+      <Add id="entry-form-name">
         <ScreenReaderOnly>Create new entry</ScreenReaderOnly>
         <div aria-hidden="true">+</div>
-      </PlusButton>
+      </Add>
     </Form>
   );
 
@@ -32,19 +32,19 @@ export default function EntryForm({ onSubmit }) {
 const Form = styled.form`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: white;
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-  position: fixed;
-  bottom: 20px;
-  width: 100vw;
   input {
     width: 100%;
+    padding: 5px;
     margin-right: 20px;
   }
 `;
 
-const PlusButton = styled.button`
+const Add = styled.button`
   border-radius: 50%;
   line-height: 0;
   width: 28px;
